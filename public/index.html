@@ -1,0 +1,69 @@
+<html>
+
+<head>
+  <title>Book Shelf</title>
+
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-auth.js"></script>
+  <script type="text/javascript" src="./libreary/Firebase.js"></script>
+  <script type="text/javascript" src="scripts/index-validator.js"></script>
+</head>
+
+<body>
+
+  <div id="signin" class="wrapper fadeInDown">
+    <div class="formContent">
+      <!-- Tabs Titles -->
+      <a href="#signin">
+        <h2 class="active">Sign In </h2>
+      </a>
+      <a href="#signup">
+        <h2 class="inactive underlineHover">Sign Up </h2>
+      </a>
+
+      <!-- Login Form -->
+      <form id="login" action="#" method="post" onsubmit="return signin()">
+        <input type="email" id="email" class="fadeIn second" name="email" placeholder="Email" autocomplete="on"
+          required>
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" autocomplete="on"
+          required>
+        <input type="submit" class="fadeIn fourth" value="Log In">
+        <br><label id="message" class="message"></label>
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div class="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="signup" class="wrapper fadeInDown">
+    <div class="formContent">
+      <!-- Tabs Titles -->
+      <a href="#signin">
+        <h2 class="inactive underlineHover">Sign In </h2>
+      </a>
+      <a href="#signup">
+        <h2 class="active">Sign Up </h2>
+      </a>
+
+      <!-- Login Form -->
+      <form id="signup" action="/signup" method="post" onsubmit="return signup()">
+        <input type="text" id="name" class="fadeIn second" name="name" placeholder="Name" required>
+        <input type="email" id="emailNew" class="fadeIn second" name="email" placeholder="Email" required>
+        <input type="password" id="passwordNew" class="fadeIn third" name="password" placeholder="Password" pattern=".{8,16}"
+          required title="8 to 16 characters">
+        <input type="password" id="passwordRep" class="fadeIn third" placeholder="Password" pattern=".{8,16}" required
+          title="8 to 16 characters">
+        <br><label id="messageNew" class="message"></label><br>
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+
+    </div>
+  </div>
+</body>
+
+</html>

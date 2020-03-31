@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>Stats</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<!-- Custom CSS -->
+	<link href="css/status.css" rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="css/navigation.css">
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-storage.js"></script>
+	<script type="text/javascript" src="./libreary/Firebase.js"></script>
+	<script type="text/javascript" src="scripts/stats.js"></script>
+</head>
+
+<body>
+	<div id='cssmenu'>
+		<ul class="nav navbar-nav">
+			<li><a href='home.html'>Home</a></li>
+			<li><a href='add.html'>Add Books</a></li>
+			<li><a href='member.html'>Membership</a></li>
+			<li class='active'><a href=''>Status</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="navbar-right"><a href="#" onclick="signOut()"><span class="glyphicon glyphicon-log-out"></span>
+					LogOut</a></li>
+		</ul>
+	</div>
+	<div class="page-container">
+		<!--/content-inner-->
+		<!--four-grids here-->
+		<div class="four-grids">
+			<div class="col-md-3 four-grid">
+				<div class="four-agileits">
+					<div class="icon">
+						<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+					</div>
+					<div class="four-text">
+						<h3>Authors</h3>
+						<h4 id="Authors"> </h4>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-3 four-grid">
+				<div class="four-agileinfo">
+					<div class="icon">
+						<i class="glyphicon glyphicon-book" aria-hidden="true"></i>
+					</div>
+					<div class="four-text">
+						<h3>Books</h3>
+						<h4 id="Books"></h4>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-3 four-grid">
+				<div class="four-w3ls">
+					<div class="icon">
+						<i class="glyphicon glyphicon-duplicate" aria-hidden="true"></i>
+					</div>
+					<div class="four-text">
+						<h3>Categories</h3>
+						<h4 id="Categories"></h4>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-3 four-grid">
+				<div class="four-wthree">
+					<div class="icon">
+						<i class="glyphicon glyphicon-briefcase" aria-hidden="true"></i>
+					</div>
+					<div class="four-text">
+						<h3>Old Projects</h3>
+						<h4>14,430</h4>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<!--//four-grids here-->
+		<!--agileinfo-grap-->
+		<div class="agileinfo-grap">
+			<div class="agileits-box">
+				<header class="agileits-box-header clearfix">
+					<h3>Statistics</h3>
+				</header>
+				<div class="agileits-box-body clearfix">
+					<div id="hero-area"></div>
+				</div>
+			</div>
+		</div>
+		<!--//agileinfo-grap-->
+		<!--photoday-section-->
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<div class="card">
+					<div class="card-body">
+						<div class="widget widget-report-table">
+							<header class="widget-header m-b-15">
+							</header>
+
+							<div class="row m-0 md-bg-grey-100 p-l-20 p-r-20">
+								<div class="col-md-6 col-sm-6 col-xs-6 w3layouts-aug">
+									<h3>Author Vice</h3>
+									<p>REPORT</p>
+								</div>
+
+							</div>
+
+							<div class="widget-body p-15">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>Author</th>
+											<th>No of Books</th>
+											<th>Rating</th>
+										</tr>
+									</thead>
+									<tbody id="authorTable"></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-xs-12 col-md-6">
+				<div class="card">
+					<div class="card-body">
+						<div class="widget widget-report-table">
+							<header class="widget-header m-b-15">
+							</header>
+
+							<div class="row m-0 md-bg-grey-100 p-l-20 p-r-20">
+								<div class="col-md-6 col-sm-6 col-xs-6 w3layouts-aug">
+									<h3>Category Vice</h3>
+									<p>REPORT</p>
+								</div>
+							</div>
+
+							<div class="widget-body p-15">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>Category</th>
+											<th>No Of Books</th>
+											<th>Rating</th>
+										</tr>
+									</thead>
+									<tbody id="categoryTable">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<!--inner block start here-->
+		<div class="inner-block">
+
+		</div>
+		<!--inner block end here-->
+		<!--copy rights start here-->
+		<div class="copyrights">
+			<p>© 2016 Pooled. All Rights Reserved | Design by <a href="http://w3layouts.com/"
+					target="_blank">W3layouts</a>
+			</p>
+		</div>
+		<!--COPY rights end here-->
+	</div>
+	</div>
+	<!--//content-inner-->
+	<!--/sidebar-menu-->
+	</div>
+	<div class="clearfix"></div>
+	</div>
+</body>
+
+</html>

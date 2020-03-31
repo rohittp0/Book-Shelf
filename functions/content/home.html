@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="3D Book Showcase with CSS 3D Transforms" />
+
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+	<link rel="stylesheet" type="text/css" href="css/default.css" />
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" href="css/navigation.css">
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+	<script type="text/javascript" src="./libreary/Firebase.js"></script>
+	<script src="scripts/home.js"></script>
+
+	<title>Book Shelf</title>
+
+</head>
+
+<body>
+	<div id='cssmenu'>
+		<ul class="nav navbar-nav">
+			<li class='active'><a href='#'>Home</a></li>
+			<li><a href='add.html'>Add Books</a></li>
+			<li><a href='member.html'>Membership</a></li>
+			<li><a href='status.html'>Status</a></li>
+		</ul>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li class="navbar-right"><a href="#" onclick="signOut()"><span class="glyphicon glyphicon-log-out"></span>
+					LogOut</a></li>
+		</ul>
+	</div>
+	<div class="container">
+		<div class="main">
+			<ul id="bk-list" class="bk-list clearfix">
+				<!--BOOK_LIST-->
+			</ul>
+		</div>
+	</div><!-- /container -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="scripts/books.js"></script>
+	<script>
+		$(function () {
+
+			Books.init();
+
+		});
+	</script>
+</body>
+
+</html>

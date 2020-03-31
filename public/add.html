@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang=''>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="css/add.css">
+
+  <link rel="stylesheet" href="css/navigation.css">
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-storage.js"></script>
+  <script type="text/javascript" src="./libreary/Firebase.js"></script>
+  <title>Book Shelf</title>
+</head>
+
+<body>
+
+  <div id='cssmenu'>
+    <ul class="nav navbar-nav">
+      <li><a href='home.html'>Home</a></li>
+      <li class='active'><a href='#'>Add Books</a></li>
+      <li><a href='member.html'>Membership</a></li>
+      <li><a href='status.html'>Status</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-right"><a href="#" onclick="signOut()"><span class="glyphicon glyphicon-log-out"></span>
+          LogOut</a></li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <div class="row floater">
+      <div class="row">
+        <label class="hidden" id="Status"> Book Added</label>
+        <h2> Add New Book </h2>
+      </div>
+      <div class="row">
+        <form class="" action="#" method="post" onsubmit="return add()"></input>
+          <div class="col-xs-12 col-md-6 pad-top">
+
+            <input type="text" id="name" placeholder="Book Name" list="bookList" required></input>
+            <datalist id="bookList"></datalist>
+
+            <input type="text" id="author" placeholder="Author" list="authorList" required></input>
+            <datalist id="authorList"></datalist>
+
+            <input type="number" id="price" min="0" step="any" placeholder="Price"></input>
+
+            <input type="text" id="category" placeholder="Category" list="catList" required></input>
+            <datalist id="catList"></datalist>
+
+          </div>
+          <div class="col-xs-12 col-md-6 pad-top">
+
+            <button type="button" class="file-input" data-toggle="modal" data-target="#myModal">
+              <img src="images/cover1.jpg" alt="" id="preview" width="100%" height="40%" />
+            </button><br><br>
+            <progress id="progressBar" max="100" value="0"></progress>
+
+          </div>
+          <div class="clearfix"></div>
+          <div class="center-block">
+            <input type="submit" id="done" value="Add"></input>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Select Cover Photo</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body w3-animate-zoom">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 centered padded">
+                <div class="card centered">
+                  <video autoplay id="vid" class="video" width="100%" height="100%"></video>
+                </div>
+                <button type="button" class="btn-primary btn-sm" onclick="snapshot()">Capture</button>
+                <canvas id="canvas" class="hidden" width="1000px" height="1000px"></canvas>
+              </div>
+              <div class="col-xs-12 col-md-6 padded">
+                <label for="file-input" class="file-label">
+                  <img src="images\upload.png" width="100%" height="98%"></img>
+                </label>
+                <input type="file" id="file-input" class="hidden" accept="image/*">
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="loading">
+    <div class="modal modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h3>Analysing Cover</h3>
+          <h5>Please wait...</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+  $("#loading").modal({
+    keyboard: false
+  });
+  $("#loading").modal("hide");
+</script>
+<script type="text/javascript" src="scripts/add.js"></script>
+<html>

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "book-shelf-be347",
+  "private_key_id": "322fa1a20cba84bc77d653594a2d4d89d14e20a7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCdMGdyVxrwmDHS\nZb43ui7HmpDgnuHq9s3sxciCAJd3+5AVKb5XdeB6qE9ZdyFKcrWStIrTwv79Dk0j\nT4BunoYie+fsBnOCpiAQbxEBrfyuwcSHZRYM0eDmHd6nwsFbk8TGKBuD3KWuaALI\nDxwVqmrfjQwVAYc4TiToh65WGp5gIxFOn0vV3gJtIJ9LUno8ewz/1UDRv1oYdPOZ\n1QVbkavZ8SCcJ+QeHbv9R0g9CPFEXLTFR5VWdsVbG9wVIVLGnhjUxIQlzEpcWGY9\n+7NBLlOOeyXpf4kjbmcPYMZNrefn/ow5vyvuNhZH9UQXZ8R62K2uxplHqZmMG1s7\n9QrYSVx3AgMBAAECggEAD6c3bfxjOBlX2mIvMDQWUeJza4+24xcJYhSlR0W3nIc/\n9ABdR/vHmAwoI4ciMnYI3RKlW1NcR1pdiSO/ubeHyp0fKj+cNu/D9EIzMqeFj07H\n4bNjbKRld1T7JfNv6oAx6yL18BddcmhBYQ3MJKyWiiuGfy/Q30twEBRO4pxk/O3o\n9MfgF/goPthNRX0su1znjaaYJTX+yuUe9OJ75jaNq2cErQrNzIunoHFv/6hIoXBK\nSUl4Zren2SdgmT2pAZrdhI0GovFWpQCrAAJ3VKslfz04CsIq5SyySbDKN2JKmNnG\nG7IwEa4RIZw6tgTxwtvOfujU9ENH5H0x/bq1QS6EWQKBgQDa650l+Bpst3TlN5IH\nq4jj6go4Jl/IPb4AH1Uq3LZfA3uFnn1GiZO/FHkkI6BSHj0ESVU+CTsNOSpUQxIq\ny9b5nL3TJtDpJLBNm+hre0p+bIZDA85WaEWw5V6COSzh/4oXOF20U1G8eh1VG/db\n2/tqNqFRya4qIY+5xXMf/jaEeQKBgQC30B8xGEp9bMB+Dta/IznKTyu+15dRRPAX\n5khjgf8fNj7f13wZkELjXZYI2WaKDGYMRA0rByRnnPt76S04kdF6CLXL2vAxakTx\n3vaMuxSIaUjKj/evXKUBFgkwZMWLKyTdiiheD/nZnl+0jqXWy1L/enp9ud7zfLAZ\njVNCQWJMbwKBgDVreRVizU/qFGQ6gy/L88NpwMSi2IyMRGjTPH0RDo9w0htw6TDl\nMWBXJphi+SQQrOL24g4ZQoefg2y8URqQUwzl6owz1JaPlVXazYQsuajP4pNHwnnj\nR946mi08tm8PZCr2Xic6jZ9oTPAPuvR3YYoxenvyssUlG2VBgS41YihBAoGBAKQ5\njPS3KC5hUKYPqevBlCtdis8KHYadmgkwVLKa/Y4sUAZ7psPMMQakoZysZ8GlDDOf\nRUiRLARqrAFsNlvZZBes2ogUxw7PTGPw+cSIjPLHZiKceAW0NzP+NR2ImzoYxOou\nOpy3l1nH9ugBnseGh1P8YJ4dx8UxPMDHlICYnDN/AoGBAJ7jDFs5vp8TIp1HBHUz\nzaEH39HHZQrPsWjwgduSdEKUPoBZwKSuetTkPS540ByVhACIFms1hPw9bfSa82CM\nh9Zm3hulcbqTg6XSMj7pMfwwVj0Qobma7uzIw8F/weoBWD7Z0mysm5k/EcGX1JsO\nBKkG+QdhohP/yQiGh0UVM1yG\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-vision-api@book-shelf-be347.iam.gserviceaccount.com",
+  "client_id": "110769525159877171469",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-vision-api%40book-shelf-be347.iam.gserviceaccount.com"
+}

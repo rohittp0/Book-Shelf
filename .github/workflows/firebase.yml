@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy to Firebase
 on:
   push:
     branches:
@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
+      - name: Set Default Project
+        uses: w9jds/firebase-action@master
+        with:
+          args: alias default
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:

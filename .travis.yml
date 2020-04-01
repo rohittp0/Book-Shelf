@@ -5,5 +5,4 @@ script:
   - echo "Deploying..."
 deploy:
   provider: firebase
-  token:
-    secure: "$TOKEN"
+  token: "$TOKEN"

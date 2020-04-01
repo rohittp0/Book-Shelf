@@ -14,9 +14,9 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
       with:
-        node-version: '10.x'
-    - run: npm install
-    - run: npm run build:prod
+        node-version: '8.x'  
+    - run: cd functions && npm install && cd ..
+    - run: cd functions && npm run build:prod && cd ..
     - uses: w9jds/firebase-action@master
       with:
         args: deploy

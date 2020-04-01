@@ -1,0 +1,6 @@
+{
+    "GoogleVision": {
+        "projectId": "XXXXXX",
+        "keyFilename": "./vision-api.json"
+    }
+}

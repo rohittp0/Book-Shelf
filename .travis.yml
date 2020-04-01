@@ -6,4 +6,5 @@ script:
 install:
   - npm install -g firebase-tools
 after_success:
-  - firebase deploy --token "$FIREBASE_TOKEN"
+  - echo "$FIREBASE_TOKEN"
+  - firebase deploy --token "$FIREBASE_TOKEN" -P book-shelf-be347

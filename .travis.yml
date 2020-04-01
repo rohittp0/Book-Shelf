@@ -5,6 +5,7 @@ script:
   - echo "Deploying..."
 install:
   - npm install eslint -g
+  - cd functions && npm install
 deploy:
   provider: firebase
   token: "$TOKEN"

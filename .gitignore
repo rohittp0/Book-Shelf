@@ -63,3 +63,5 @@ build/Release
 
 #Editor config
 settings.json
+#Node package lock
+**package-lock.json

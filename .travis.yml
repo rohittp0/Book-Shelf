@@ -3,9 +3,13 @@ node_js:
   - "8.0"
 script: 
   - echo "Deploying..."
+  - cd functions 
+  - npm run lint
+  - cd ..
 install:
   - npm install eslint -g
   - cd functions && npm install && cd ..
+  - npm install
 deploy:
   provider: firebase
   token: "$TOKEN"

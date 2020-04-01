@@ -11,9 +11,11 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
-      - name: Setup
+      - name: Install firebase-tools
         run: |
+          cd functions
           npm install firebase-tools
-          npm run firebase ailas default
+      - name: Setup firebase
+        run: npm run firebase ailas default
       - name: Deploy
         run: npm run firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}

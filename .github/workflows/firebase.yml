@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@master
       - name: Setup
         run: |
-          npm install firebase-tools -g
+          npm install firebase-tools
           firebase ailas default
       - name: Deploy
         run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}

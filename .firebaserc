@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "book-shelf-be347",
-    "staging": "book-shelf-be347"
+    "default": "book-shelf-be347"
   }
 }

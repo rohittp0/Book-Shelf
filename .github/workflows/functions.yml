@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@Functions
-    - uses: actions/setup-node@Functions
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
       with:
         node-version: '8.x'  
     - uses: w9jds/firebase-action@master

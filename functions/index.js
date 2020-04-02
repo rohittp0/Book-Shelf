@@ -133,12 +133,12 @@ app.post('/signup', (request, response) => {
     });
 
     admin.auth().createUser({
-            email: email,
-            emailVerified: false,
-            password: password,
-            displayName: name,
-            disabled: false
-        })
+        email: email,
+        emailVerified: false,
+        password: password,
+        displayName: name,
+        disabled: false
+    })
         .then((userRecord) => {
             return admin.auth().createCustomToken(userRecord.uid);
         }).then((token) => {
@@ -420,7 +420,7 @@ exports.created = functions.firestore.document('Books/{bookID}')
                     batch.update(stats.doc("Author_Props"), {
                         count: FieldValue.increment(1)
                     });
-                    return batch.add(db.collection("/stats/Author_Props/Authors"), {
+                    return batch.update(db.collection("/stats/Author_Props/Authors").doc(), {
                         Name: Format(snapshot.data().Author),
                         Books: 1,
                         Rating: snapshot.data().Price || 0
@@ -435,7 +435,7 @@ exports.created = functions.firestore.document('Books/{bookID}')
         promise[5] = db.collection("/stats/Category_Props/Categories").where("Name", "==", Format(snapshot.data().Category))
             .get().then((snapshots) => {
                 if (snapshots.empty || !snapshots.docs[0].exists) {
-                    batch.add((db.collection("/stats/Category_Props/Categories"), {
+                    batch.update((db.collection("/stats/Category_Props/Categories").doc(), {
                         Name: Format(snapshot.data().Category),
                         Books: 1,
                         Rating: snapshot.data().Price || 0
@@ -466,15 +466,15 @@ exports.deleted = functions.firestore.document('Books/{bookID}')
 
         promise[1] = db.collection("/stats/Author_Props/Authors").where("Name", "==", Format(snapshot.data().Author))
             .get().then((snapshots) => {
-                return batch.update(snapshots.docs[0].ref, {
+                return snapshots.docs[0] && snapshots.docs[0].exist ? batch.update(snapshots.docs[0].ref, {
                     Books: FieldValue.increment(-1),
                     Rating: FieldValue.increment(-snapshot.data().Price || 0)
-                });
+                }) : null;
             });
 
         promise[2] = db.collection("/stats/Category_Props/Categories").where("Name", "==", Format(snapshot.data().Category))
             .get().then((snapshots) => {
-                return snapshots.docs[0].exists ? batch.update(snapshots.docs[0].ref, {
+                return snapshots.docs[0] && snapshots.docs[0].exists ? batch.update(snapshots.docs[0].ref, {
                     Books: FieldValue.increment(-1),
                     Rating: FieldValue.increment(-snapshot.data().Price || 0)
                 }) : null;
@@ -489,7 +489,7 @@ exports.deleted = functions.firestore.document('Books/{bookID}')
 
         if (snapshot.data().PhotoRef)
             promise[5] = admin.storage().bucket('gs://book-shelf-be347.appspot.com')
-            .file(snapshot.data().PhotoRef).delete();
+                .file(snapshot.data().PhotoRef).delete();
 
         return Promise.all(promise).then(() => batch.commit());
 

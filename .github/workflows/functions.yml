@@ -1,0 +1,22 @@
+name: Functions
+
+on:
+  push:
+    branches: 
+    - Functions
+
+jobs:
+  firebase-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: '8.x'  
+    - uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only functions
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

@@ -435,11 +435,11 @@ exports.created = functions.firestore.document('Books/{bookID}')
         promise[5] = db.collection("/stats/Category_Props/Categories").where("Name", "==", Format(snapshot.data().Category))
             .get().then((snapshots) => {
                 if (snapshots.empty || !snapshots.docs[0].exists) {
-                    batch.update((db.collection("/stats/Category_Props/Categories").doc(), {
+                    batch.update(db.collection("/stats/Category_Props/Categories").doc(), {
                         Name: Format(snapshot.data().Category),
                         Books: 1,
                         Rating: snapshot.data().Price || 0
-                    }));
+                    });
                     return batch.update(stats.doc("Category_Props"), {
                         count: FieldValue.increment(1)
                     });
